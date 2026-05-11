@@ -93,21 +93,30 @@ body {
 <nav class="navbar">
     <div class="logo">JS Lab</div>
     
-    <!-- Este es el botón de hamburguesa -->
-    <button class="menu-toggle" id="menuBtn" aria-label="Abrir menú">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </button>
-    
     <!-- Menú de Navegación -->
     <ul class="nav-links" id="navLinks">
         <li><a href="#">Inicio</a></li>
         <li><a href="#">Proyectos</a></li>
         <li><a href="#">Contacto</a></li>
     </ul>
+    
+    <!-- Este es el botón de hamburguesa -->
+    <button class="menu-toggle" id="menuBtn" aria-label="Abrir menú">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>   
+    
+    <!--MOBILE MENU-->  
+   <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#inicio" class="nav-links">Inicio</a></li>
+      <li><a href="#nosotros" class="nav-links">Nosotros</a></li>
+      <li><a href="#productos" class="nav-links">Productos</a></li>
+    </ul>
+  </div>    
 </nav>
-
+    
     <main class="container">
         <!-- Sección de Botones (Acciones) -->
         <section class="card">
@@ -130,7 +139,7 @@ body {
         </section>
     </main>
 
-<script>      
+<script>          
 // 1. Lógica del Menú Responsivo (Evento Click)
 const menuBtn = document.getElementById('menuBtn');
 const navLinks = document.getElementById('navLinks');
