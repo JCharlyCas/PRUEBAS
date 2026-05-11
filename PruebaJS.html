@@ -130,7 +130,7 @@ body {
         </section>
     </main>
 
-    <script>      
+<script>      
 // 1. Lógica del Menú Responsivo (Evento Click)
 const menuBtn = document.getElementById('menuBtn');
 const navLinks = document.getElementById('navLinks');
@@ -138,6 +138,36 @@ const navLinks = document.getElementById('navLinks');
 menuBtn.addEventListener('click', () => {
     navLinks.classList.toggle('show');
 });
+
+   /* Clase que activaremos con JS */
+    .nav-links.active {
+        display: flex; 
+    }
+
+    /* Animación opcional para que la hamburguesa se haga una 'X' */
+    .menu-toggle.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.open .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
+    
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
+
+menuBtn.addEventListener('click', () => {
+    // 1. Despliega el menú
+    navLinks.classList.toggle('active');
+    
+    // 2. Anima el botón (opcional, para que la hamburguesa cambie a X)
+    menuBtn.classList.toggle('open');
+});
+
+// EXTRA: Cerrar el menú automáticamente al hacer clic en un enlace
+// (Muy importante para la experiencia de usuario en móviles)
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuBtn.classList.remove('open');
+    });
 
 // 2. Lógica del Contador (Acciones Básicas)
 let cuenta = 0;
@@ -170,38 +200,8 @@ formulario.addEventListener('submit', (e) => {
     mensaje.style.marginTop = "15px";
     
     formulario.reset(); // Limpia el input
+ });
 });
-
-  /* Clase que activaremos con JS */
-    .nav-links.active {
-        display: flex; 
-    }
-
-    /* Animación opcional para que la hamburguesa se haga una 'X' */
-    .menu-toggle.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .menu-toggle.open .bar:nth-child(2) { opacity: 0; }
-    .menu-toggle.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-}
-    
-const menuBtn = document.getElementById('menuBtn');
-const navLinks = document.getElementById('navLinks');
-
-menuBtn.addEventListener('click', () => {
-    // 1. Despliega el menú
-    navLinks.classList.toggle('active');
-    
-    // 2. Anima el botón (opcional, para que la hamburguesa cambie a X)
-    menuBtn.classList.toggle('open');
-});
-
-// EXTRA: Cerrar el menú automáticamente al hacer clic en un enlace
-// (Muy importante para la experiencia de usuario en móviles)
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        menuBtn.classList.remove('open');
-    });
-  
 </script>
 </body>
 </html>
