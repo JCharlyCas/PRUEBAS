@@ -1,1 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Básico - Práctica</title>
+    <<style>
+/* Paleta: Blanco #FFFFFF, Azul #007BFF, Gris #6C757D */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+}
+
+.navbar {
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 5%;
+    border-bottom: 2px solid #ddd;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links.active {
+    display: block; /* Para el móvil */
+}
+
+.menu-toggle {
+    display: none; /* Se oculta en desktop */
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.container {
+    padding: 2rem 5%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-primary { background: #007BFF; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;}
+.btn-outline { background: white; border: 1px solid #6C757D; color: #6C757D; padding: 10px 20px; border-radius: 5px; cursor: pointer;}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .menu-toggle { display: block; }
+    .nav-links { display: none; width: 100%; position: absolute; top: 60px; left: 0; background: white; text-align: center; border-bottom: 1px solid #ddd; }
+    .nav-links.show { display: flex; flex-direction: column; padding: 1rem 0; }
+}
+</style>
+</head>
+<body>
+
+    <!-- Menú de Navegación -->
+    <nav class="navbar">
+        <div class="logo">JS Lab</div>
+        <button class="menu-toggle" id="menuBtn">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Proyectos</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <!-- Sección de Botones (Acciones) -->
+        <section class="card">
+            <h2>Interactividad con Botones</h2>
+            <p>Contador actual: <span id="contador">0</span></p>
+            <div class="btn-group">
+                <button id="btnSumar" class="btn-primary">Sumar +1</button>
+                <button id="btnReiniciar" class="btn-outline">Reiniciar</button>
+            </div>
+        </section>
+
+        <!-- Sección de Formulario (Eventos de Input) -->
+        <section class="card">
+            <h2>Formulario Dinámico</h2>
+            <form id="miFormulario">
+                <input type="text" id="nombreInput" placeholder="Escribe tu nombre..." required>
+                <button type="submit" class="btn-primary">Enviar</button>
+            </form>
+            <p id="mensajeBienvenida" class="hidden"></p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
