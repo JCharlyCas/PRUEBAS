@@ -100,7 +100,49 @@ body {
         </section>
     </main>
 
-    <script src="script.js"></script>
+    <script>
+// 1. Lógica del Menú Responsivo (Evento Click)
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
+
+menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+});
+
+// 2. Lógica del Contador (Acciones Básicas)
+let cuenta = 0;
+const txtContador = document.getElementById('contador');
+const btnSumar = document.getElementById('btnSumar');
+const btnReiniciar = document.getElementById('btnReiniciar');
+
+btnSumar.addEventListener('click', () => {
+    cuenta++;
+    txtContador.textContent = cuenta;
+    txtContador.style.color = "#007BFF"; // Cambio de estilo dinámico
+});
+
+btnReiniciar.addEventListener('click', () => {
+    cuenta = 0;
+    txtContador.textContent = cuenta;
+    txtContador.style.color = "#333";
+});
+
+// 3. Lógica del Formulario (Evento Submit)
+const formulario = document.getElementById('miFormulario');
+const mensaje = document.getElementById('mensajeBienvenida');
+
+formulario.addEventListener('submit', (e) => {
+    e.preventDefault(); // Evita que la página se recargue
+    const nombre = document.getElementById('nombreInput').value;
+    
+    mensaje.textContent = `¡Qué onda, ${nombre}! Bienvenido al código.`;
+    mensaje.style.display = "block";
+    mensaje.style.marginTop = "15px";
+    
+    formulario.reset(); // Limpia el input
+});
+</script>
 </body>
+
 </html>
 
