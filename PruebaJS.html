@@ -1,3 +1,91 @@
+<nav class="navbar">
+    <div class="logo">JS Lab</div>
+    
+    <!-- Este es el botón de hamburguesa -->
+    <button class="menu-toggle" id="menuBtn" aria-label="Abrir menú">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Proyectos</a></li>
+        <li><a href="#">Contacto</a></li>
+    </ul>
+</nav>
+
+
+/* --- Estilos para Escritorio (Base) --- */
+.menu-toggle {
+    display: none; /* Oculto en PC */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    background: none;
+    border: none;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #007BFF; /* El azul de tu paleta */
+    transition: 0.3s;
+}
+
+/* --- Estilos para Móvil (Menú Hamburguesa) --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Aparece en móviles */
+    }
+
+    .nav-links {
+        display: none; /* Se oculta la lista por defecto */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Debajo de la barra de navegación */
+        left: 0;
+        width: 100%;
+        background-color: #FFFFFF;
+        border-bottom: 2px solid #ddd;
+        padding: 1rem 0;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Clase que activaremos con JS */
+    .nav-links.active {
+        display: flex; 
+    }
+
+    /* Animación opcional para que la hamburguesa se haga una 'X' */
+    .menu-toggle.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.open .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
+    
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
+
+menuBtn.addEventListener('click', () => {
+    // 1. Despliega el menú
+    navLinks.classList.toggle('active');
+    
+    // 2. Anima el botón (opcional, para que la hamburguesa cambie a X)
+    menuBtn.classList.toggle('open');
+});
+
+// EXTRA: Cerrar el menú automáticamente al hacer clic en un enlace
+// (Muy importante para la experiencia de usuario en móviles)
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuBtn.classList.remove('open');
+    });
+});
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
